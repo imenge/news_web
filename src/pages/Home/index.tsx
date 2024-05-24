@@ -1,8 +1,17 @@
-// import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-vant";
 import Tabbars from "../../components/Tabbar";
-
+import { verificationCode } from "../../request/api";
 const Home = () => {
+  useEffect(() => {
+    getVerificationCode();
+  }, []);
+
+  const getVerificationCode = async () => {
+    const res = await verificationCode();
+    console.log(res);
+  };
+
   return (
     <div className="home">
       <div className="container">
